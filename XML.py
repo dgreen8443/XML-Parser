@@ -13,24 +13,47 @@ root2 = tree2.getroot()
 # 
 list1 = []
 list2 = []
-def depthCheck(attribute):
-	if len(attribute) > 1:
+def depthCheck(element):
+	if len(element) >= 1:
 		return 1
 	else: 
 		return 0
 
-def rooting(attribute, lista):
-	for child in attribute:
-		if depthCheck(child) == 1:
-			innerlist = []
-			rooting(child, innerlist)
-			lista.append(innerlist)
-		else:
-			tag = child.tag
-			value = attribute.find(tag).text
-			temp_dict = {tag : value}
-			lista.append(temp_dict)
+
+	
+
+def rooting(element, lista):
+	print("$" + element.tag)
+	
+	lista.append(element.tag)
+	for child in element:
 		
+		tag = child.tag
+		att = child.attrib
+	
+		if depthCheck(child) == 1:
+			
+			rooting(child, lista)
+			
+		
+		else:
+			
+			lista.append(tag)
+			lista.append(att)
+		
+
+
 rooting(root1, list1)
+rooting(root2, list2)
+print(root1.tag	)
 print(list1)
+print()
 print(list2)
+
+diff1 = [x for x in list1 if x not in list2]
+diff2 = [x for x in list2 if x not in list1]
+
+print("\n\nIn list 1 not in list 2" )
+print(diff1)
+print("\n\nIn list 2 not in list 1" )
+print(diff2)

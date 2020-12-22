@@ -15,6 +15,9 @@
     </country>
     <country name="Panama">
         <rank>68</rank>
+		<samplx>
+			<dataa>hello</dataa>
+		</samplx>
         <year>2011</year>
         <gdppc>13600</gdppc>
         <neighbor name="Costa Rica" direction="W"/>
