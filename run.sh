@@ -1,0 +1,1 @@
+python3 XML.py schema1.XML schema2.XML 
